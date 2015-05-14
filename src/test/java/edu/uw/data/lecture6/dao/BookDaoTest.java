@@ -1,24 +1,32 @@
 package edu.uw.data.lecture6.dao;
 
 
-import edu.uw.data.lecture6.config.*;
-import edu.uw.data.lecture6.model.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.slf4j.*;
-import org.springframework.test.context.*;
-import org.springframework.test.context.junit4.*;
-import org.springframework.test.context.support.*;
-import org.springframework.test.context.transaction.*;
+import edu.uw.data.lecture6.config.EmbeddedTestDataSourceInit;
+import edu.uw.data.lecture6.config.PersistenceJPAConfig;
+import edu.uw.data.lecture6.model.Book;
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import javax.annotation.*;
-import javax.sql.*;
-import java.util.*;
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * repeatable tests
@@ -193,6 +201,47 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
            log.info("book "+book);
         }
     }
+
+
+
+
+  @Test
+     // TODO In the ClassicDaoImpl class annotate the method we call here with spring @Cacheable using the "mymethods" cache name
+     public void findOffices_cache_method_Test_LAB() {
+         long start;
+         long duration;
+
+         //
+         // first call should pull from database and push into the method cache named "offices"
+         //
+         start = System.currentTimeMillis();
+         bookDao.findAll(); // TODO add @Cacheable to the method impl  called here
+         duration = System.currentTimeMillis() - start;
+         log.info("1st  took " + (duration) + " ms");
+
+         //
+         // second call should pull from cache
+         //
+         start = System.currentTimeMillis();
+    bookDao.findAll(); // TODO add @Cacheable to the method impl  called here
+         duration = System.currentTimeMillis() - start;
+         log.info("2nd  took " + duration + " ms");
+
+
+    bookDao.getHibernateStatistics();
+
+    bookDao.printEhcacheStatistics();
+
+         //
+         // assert we got a hit count in the "offices" cache we setup for findAllOffices_method_caching_LAB() method
+         //
+         CacheManager cacheManager = CacheManager.getInstance();
+         Cache officesCache = cacheManager.getCache("mymethods");
+         long cacheHits = officesCache.getStatistics().getCacheHits();
+         System.out.println(" offices Cache hits =" + cacheHits);
+         assertTrue(cacheHits > 0);
+
+     }
 
 
 }

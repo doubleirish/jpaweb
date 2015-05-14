@@ -1,8 +1,8 @@
 package edu.uw.data.lecture6.dao;
 
-import edu.uw.data.lecture6.model.*;
+import edu.uw.data.lecture6.model.Book;
 
-import java.util.*;
+import java.util.List;
 
 /**
  *
@@ -17,5 +17,12 @@ public interface BookDao {
 
   // Queries
   List<Book> findByGenre(String genre);
-  List<Book> findAll(); 
+  List<Book> findAll();
+
+
+         // print
+  public   org.hibernate.stat.Statistics getHibernateStatistics() ;
+
+
+public   void  printEhcacheStatistics() ;
 }
