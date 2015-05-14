@@ -61,7 +61,7 @@
 
 
 
-       <cache name="edu.uw.data.lecture7.model.Product"
+       <cache name="edu.uw.data.lecture6.model.Book"
               maxElementsInMemory="300"
               eternal="false"
               timeToIdleSeconds="3600"

@@ -23,7 +23,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:dbprod.properties")
-@ComponentScan(basePackages = {"edu.uw.data.lecture6.dao","edu.uw.data.lecture6.model"})
+@ComponentScan(basePackages = {"edu.uw.data.lecture6.dao", "edu.uw.data.lecture6.model", "edu.uw.data.lecture6.service"})
 @EnableCaching
 public class PersistenceJPAConfig {
 

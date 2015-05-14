@@ -12,6 +12,7 @@ public interface BookDao {
   // CRUD
   Book createBook(Book book);
   Book findByISBN(String isbn);
+  Book  findBookById(Integer id);
   void updateBook(Book book);
   void deleteBook(Book book);
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
  * User can have one Adress but many Phone Numbers
  */
 @Entity
-@org.hibernate.annotations.Cache(usage = org.hibernate.annotations.CacheConcurrencyStrategy.READ_WRITE)
+// TODO add hibernate cache annotation here
 @Table(name="BOOKS")
 public class Book {
     @Id

@@ -2,6 +2,7 @@ package edu.uw.data.lecture6.service;
 
 import edu.uw.data.lecture6.dao.*;
 import edu.uw.data.lecture6.model.*;
+import org.hibernate.stat.Statistics;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.transaction.annotation.*;
@@ -30,4 +31,15 @@ public class BookServiceImpl implements BookService{
     public void deleteBook(Book book) {
        bookDao.deleteBook(book);
     }
+
+  @Override
+     public Book findBookById(Integer id) {
+        return bookDao.findBookById(id);
+     }
+
+
+     @Override
+     public Statistics getHibernateStatistics() {
+           return bookDao.getHibernateStatistics();
+     }
 }

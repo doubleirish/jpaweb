@@ -24,20 +24,26 @@ public class BookDaoImpl implements BookDao {
 
     static final Logger log = LoggerFactory.getLogger(BookDaoImpl.class);
 
-    @Override
+
+    public Book  findBookById(Integer id){
+            return em.find(Book.class ,id );
+
+        }
+
+
     public Book createBook(Book book) {
         em.persist(book);
         return book;
     }
 
-    @Override
+
     public Book findByISBN(String isbn) {
         return em.createQuery("select b from Book b where b.isbn = :isbn", Book.class)
                 .setParameter("isbn", isbn)
                 .getResultList().get(0);
     }
 
-    @Override
+
     public void updateBook(Book book) {
 
             em.merge(book);
@@ -47,7 +53,7 @@ public class BookDaoImpl implements BookDao {
 
     }
 
-    @Override
+
     public void deleteBook(Book book) {
         if (book.getId()!=null) {
             em.remove(book);
@@ -61,22 +67,22 @@ public class BookDaoImpl implements BookDao {
         log.info("updated book"+book);
     }
 
-    @Override
+
     public List<Book> findByGenre(String genre) {
         return em.createQuery("select b from Book b where b.genre = :genre", Book.class)
                 .setParameter("genre", genre)
                 .getResultList();
     }
 
-    @Override
-    @Cacheable("mymethods")
+
+    //TODO add spring cache methiod annotation here
     public List<Book> findAll() {
        return    em.createQuery("select b from Book b",Book.class)
                 .getResultList();
     }
 
 
-  @Override
+
   public org.hibernate.stat.Statistics getHibernateStatistics() {
     Session session = (Session) em.getDelegate();
     SessionFactory sessionFactory = session.getSessionFactory();
@@ -95,7 +101,7 @@ public class BookDaoImpl implements BookDao {
     return stats;
   }
 
-  @Override
+
   public void printEhcacheStatistics() {
     CacheManager cacheManager = CacheManager.getInstance();
     String[] cacheNames = cacheManager.getCacheNames();
