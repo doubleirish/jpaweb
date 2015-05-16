@@ -38,7 +38,7 @@ datasource-production-standalone.xml.  you can choose the location of the derby 
 This Sample webapp does not use a JNDI defined datasource.  
 
 A separate branch will be used to illustrate how to connect to a JNDI datasource resource defined in tomcat/s server.xml 
-
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -52,6 +52,8 @@ A separate branch will be used to illustrate how to connect to a JNDI datasource
    <import resource="services-spring.xml"/>
 
 </beans>
+```
+
 
 
 - TODO add SiteMesh with Header,Footer and Nav panels
