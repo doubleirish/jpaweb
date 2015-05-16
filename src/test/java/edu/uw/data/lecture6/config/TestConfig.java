@@ -5,10 +5,12 @@ import org.mockito.*;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.*;
-
-@EnableWebMvc
-@Configuration
-@ComponentScan(basePackages = "com.uw.data.lecture6.controller")
+/**
+ * JAVA CONFIG
+ */
+//@EnableWebMvc
+//@Configuration
+//@ComponentScan(basePackages = "com.uw.data.lecture6.controller")
 public class TestConfig extends WebMvcConfigurerAdapter {
 
 	@Bean

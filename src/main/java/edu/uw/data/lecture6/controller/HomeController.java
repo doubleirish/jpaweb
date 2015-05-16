@@ -29,7 +29,7 @@ public class HomeController {
 	public ModelAndView homePage() {
         log.info("home");
 		ModelAndView mav = new ModelAndView();
-        List<Book> books = bookDao.findAll();
+        List<Book> books = bookDao.findAllBooks();
         mav.addObject("books", books);
 		mav.setViewName("home");
 		return mav;
@@ -39,7 +39,7 @@ public class HomeController {
     public ModelAndView homePage2() {
         log.info("home2");
         ModelAndView mav = new ModelAndView();
-        List<Book> books = bookDao.findAll();
+        List<Book> books = bookDao.findAllBooks();
         mav.addObject("books", books);
         mav.setViewName("home");
         return mav;

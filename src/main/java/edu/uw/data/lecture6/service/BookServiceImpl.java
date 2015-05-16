@@ -1,11 +1,13 @@
 package edu.uw.data.lecture6.service;
 
-import edu.uw.data.lecture6.dao.*;
-import edu.uw.data.lecture6.model.*;
+import edu.uw.data.lecture6.dao.BookDao;
+import edu.uw.data.lecture6.model.Book;
 import org.hibernate.stat.Statistics;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
-import org.springframework.transaction.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Conor on 4/12/2015.
@@ -38,7 +40,15 @@ public class BookServiceImpl implements BookService{
      }
 
 
-     @Override
+    @Override
+    public List<Book> findAllBooks( ) {
+        return bookDao.findAllBooks();
+    }
+
+
+
+
+    @Override
      public Statistics getHibernateStatistics() {
            return bookDao.getHibernateStatistics();
      }

@@ -1,19 +1,21 @@
 package edu.uw.data.lecture6.config;
 
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.context.annotation.*;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.*;
-import org.springframework.jdbc.datasource.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import javax.sql.*;
+import javax.sql.DataSource;
 
 /**
- * Created by Conor on 4/12/2015.
+ * JAVA CONFIG
  */
-@Configuration
-@Profile("dev")
-@PropertySource("classpath:dbtest.properties")
+
+//@Configuration
+//@Profile("dev")
+//@PropertySource("classpath:dbtest.properties")
+
+
 public class DataSourceStandaloneConfig {
     @Autowired
     private Environment environment;

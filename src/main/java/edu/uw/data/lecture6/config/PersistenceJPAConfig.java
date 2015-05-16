@@ -2,13 +2,9 @@ package edu.uw.data.lecture6.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -20,11 +16,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-
-@Configuration
-@PropertySource("classpath:dbprod.properties")
-@ComponentScan(basePackages = {"edu.uw.data.lecture6.dao", "edu.uw.data.lecture6.model", "edu.uw.data.lecture6.service"})
-@EnableCaching
+/**
+ * JAVA CONFIG
+ */
+//@Configuration
+//@PropertySource("classpath:dbprod.properties")
+//@ComponentScan(basePackages = {"edu.uw.data.lecture6.dao", "edu.uw.data.lecture6.model", "edu.uw.data.lecture6.service"})
+//@EnableCaching
 public class PersistenceJPAConfig {
 
     @Autowired

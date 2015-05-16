@@ -1,11 +1,7 @@
 package edu.uw.data.lecture6.dao;
 
 
-import edu.uw.data.lecture6.config.EmbeddedTestDataSourceInit;
-import edu.uw.data.lecture6.config.PersistenceJPAConfig;
 import edu.uw.data.lecture6.model.Book;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,7 +10,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import javax.annotation.Resource;
@@ -34,15 +29,13 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 
-@ContextConfiguration(loader=AnnotationConfigContextLoader.class,
-        classes = {
-               // EmbeddedDataSource.class,
-                    EmbeddedTestDataSourceInit.class,
-               // DataSourceStandaloneConfig.class,
-        PersistenceJPAConfig.class,
-
+// JAVA CONFIG @ContextConfiguration(loader=AnnotationConfigContextLoader.class, classes = {   EmbeddedTestDataSourceInit.class,  PersistenceJPAConfig.class})
+@ContextConfiguration(locations = {"classpath:/services-spring.xml",
+        "classpath:/datasource-embedded-init.xml"
+        //  "classpath:/datasource-embedded-init-p6spy.xml"
+        //  "classpath:/datasource-standalone-test.xml"
+        //  "classpath:/datasource-standalone-p6spy-test.xml"
 })
-
 
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 @ActiveProfiles("dev")
@@ -194,7 +187,7 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Test
     public void findAll() {
-        List<Book> books = bookDao.findAll();
+        List<Book> books = bookDao.findAllBooks();
         assertNotNull(books);
         assertTrue(books.size() > 0);
         for (Book book : books) {
@@ -203,7 +196,7 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
     }
 
 
-
+/*
 
   @Test
      // TODO In the ClassicDaoImpl class annotate the method we call here with spring @Cacheable using the "mymethods" cache name
@@ -215,7 +208,7 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
          // first call should pull from database and push into the method cache named "offices"
          //
          start = System.currentTimeMillis();
-         bookDao.findAll(); // TODO add @Cacheable to the method impl  called here
+         bookDao.findAllBooks(); // TODO add @Cacheable to the method impl  called here
          duration = System.currentTimeMillis() - start;
          log.info("1st  took " + (duration) + " ms");
 
@@ -223,14 +216,14 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
          // second call should pull from cache
          //
          start = System.currentTimeMillis();
-    bookDao.findAll(); // TODO add @Cacheable to the method impl  called here
+           bookDao.findAllBooks(); // TODO add @Cacheable to the method impl  called here
          duration = System.currentTimeMillis() - start;
          log.info("2nd  took " + duration + " ms");
 
 
-    bookDao.getHibernateStatistics();
+          bookDao.getHibernateStatistics();
 
-    bookDao.printEhcacheStatistics();
+           bookDao.printEhcacheStatistics();
 
          //
          // assert we got a hit count in the "offices" cache we setup for findAllOffices_method_caching_LAB() method
@@ -242,6 +235,6 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
          assertTrue(cacheHits > 0);
 
      }
-
+*/
 
 }

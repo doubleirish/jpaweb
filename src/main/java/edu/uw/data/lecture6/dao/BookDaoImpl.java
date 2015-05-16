@@ -76,7 +76,7 @@ public class BookDaoImpl implements BookDao {
 
 
     //TODO add spring cache methiod annotation here
-    public List<Book> findAll() {
+    public List<Book> findAllBooks() {
        return    em.createQuery("select b from Book b",Book.class)
                 .getResultList();
     }

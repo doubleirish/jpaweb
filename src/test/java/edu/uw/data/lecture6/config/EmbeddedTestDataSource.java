@@ -6,17 +6,17 @@ import org.springframework.jdbc.datasource.embedded.*;
 import javax.sql.*;
 
 /**
- * Created by Conor on 4/12/2015.
+ * JAVA CONFIG
  */
-@Configuration
-@Profile("dev")
+//@Configuration
+//@Profile("dev")
 public class EmbeddedTestDataSource {
     @Bean
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.DERBY)
-                .addScript("classpath:book_create.sql")
-                .addScript("classpath:book_insert.sql")
+                .addScript("classpath:create_book.sql")
+                .addScript("classpath:insert_book.sql")
                 .build();
     }
 }

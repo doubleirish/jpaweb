@@ -17,29 +17,13 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     </welcome-file-list>
 
 
-    <!-- Spring configuration -->
-    <!--  CONOR BEGIN Enable this   context-param     to use XML CONFIG -->
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:jpaweb-spring.xml</param-value>
     </context-param>
-    <!--  CONOR END Enable this   context-param     to use XML CONFIG -->
 
 
-
-    <!--  CONOR BEGIN Enable the enclosed two context-params     to use JAVA CONFIG -->
-    <!--
-	<context-param>
-		<param-name>contextClass</param-name>
-		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
-	</context-param>
-
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>edu.uw.data.lecture6.config.AppConfig</param-value>
-	</context-param>
-	-->
-    <!--  CONOR END Enable the enclosed two context-params     to use JAVA CONFIG -->
 
 
 	<listener>
@@ -53,26 +37,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>dispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 
-        <!--  CONOR Enable the  following   init param to use XML CONFIG -->
+
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/jpaweb-servlet.xml</param-value>
         </init-param>
-
-<!--  CONOR BEGIN Enable the  enclosed two init params to use JAVA CONFIG -->
-<!--
-		<init-param>
-			<param-name>contextClass</param-name>
-			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
-		</init-param>
-
-
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>edu.uw.data.lecture6.config.AppConfig</param-value>
-		</init-param>
--->
-        <!--  CONOR END Enable the  enclosed two init params to use JAVA CONFIG -->
 
 
 		<load-on-startup>1</load-on-startup>

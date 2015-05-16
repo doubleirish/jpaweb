@@ -6,9 +6,13 @@ import org.springframework.core.io.*;
 import org.springframework.jdbc.datasource.init.*;
 
 import javax.sql.*;
-@Profile("dev")
+
+/**
+ * JAVA CONFIG
+ */
+//@Profile("dev")
 //@PropertySource("classpath:dbtest.properties")
-@Configuration
+//@Configuration
 public class EmbeddedTestDataSourceInit {
 
 //    @Autowired
@@ -24,9 +28,9 @@ public class EmbeddedTestDataSourceInit {
     private DatabasePopulator createDatabasePopulator() {
         ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         databasePopulator.setContinueOnError(true);
-      //  databasePopulator.addScript(new ClassPathResource("book_drop.sql"));
-        databasePopulator.addScript(new ClassPathResource("book_create.sql"));
-        databasePopulator.addScript(new ClassPathResource("book_insert.sql"));
+      //  databasePopulator.addScript(new ClassPathResource("drop_book.sql"));
+        databasePopulator.addScript(new ClassPathResource("sql/create_book.sql"));
+        databasePopulator.addScript(new ClassPathResource("sql/insert_book.sql"));
         return databasePopulator;
     }
 

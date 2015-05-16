@@ -18,7 +18,7 @@ public interface BookDao {
 
   // Queries
   List<Book> findByGenre(String genre);
-  List<Book> findAll();
+  List<Book> findAllBooks();
 
 
          // print
