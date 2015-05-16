@@ -4,7 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="datasource-production.xml"/>
+    <!--<import resource="datasource-production-standalone.xml"/>-->
+
+    <import resource="datasource-production-embedded-prepop.xml"/>
 
     <import resource="services-spring.xml"/>
 

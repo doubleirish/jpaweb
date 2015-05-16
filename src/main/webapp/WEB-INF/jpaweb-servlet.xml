@@ -45,7 +45,7 @@
     </bean>
 
     <!-- maps to a views.properties on the classpath -->
-    <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver" p:basename="views" p:order="0" />
+    <!--<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver" p:basename="views" p:order="0" />-->
 
     <!-- Resource Bundles -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">

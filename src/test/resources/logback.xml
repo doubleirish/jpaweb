@@ -16,9 +16,9 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
         </encoder>
     </appender>
 
- <logger name="edu.uw" level="info"/>
+ <logger name="edu.uw" level="debug"/>
    <!-- Uncomment and add your logger here: -->
-    <logger name="org.springframework.web" level="debug"/>
+    <!--<logger name="org.springframework.samples.service.service" level="debug"/>-->
          
     <root level="info">
         <appender-ref ref="console"/>

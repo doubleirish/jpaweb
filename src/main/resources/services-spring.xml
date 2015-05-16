@@ -6,6 +6,6 @@
 
 
     <import resource="dao-spring.xml"/>
-    <import resource="cache-spring.xml"/>
+    <!--<import resource="cache-spring.xml"/>-->
 
 </beans>
