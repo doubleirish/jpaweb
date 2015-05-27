@@ -26,8 +26,10 @@ public class Book {
     @Column(name="AUTHOR")
     private String author;
 
-    @Column(name="GENRE")
-    private String genre;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="GENRE_ID")
+    private Genre genre;
 
     @Column(name="PRICE")
     private double price;
@@ -76,11 +78,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getGenre() {
+    public Genre getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
@@ -99,7 +101,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", author='" + author + '\'' +
-                ", genre='" + genre + '\'' +
+            //    ", genre='" + genre + '\'' +
                 ", price=" + price +
                 '}';
     }
@@ -141,7 +143,7 @@ public class Book {
       return this;
     }
 
-    public Builder genre(String  genre) {
+    public Builder genre(Genre  genre) {
       book.setGenre(genre);
       return this;
     }

@@ -2,6 +2,7 @@ package edu.uw.data.lecture6.dao;
 
 
 import edu.uw.data.lecture6.model.Book;
+import edu.uw.data.lecture6.model.Genre;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -76,7 +77,7 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
                 .title("Java Persistence with Hibernate")
                 .description("In this revised edition of the bestselling Hibernate in Action, authors Christian Bauer and Gavin King-the founder of the Hibernate project-cover Hibernate 3.2 in detail along with the EJB 3.0 and Java Persistence standard.")
                 .price(59.99)
-                .genre("Technical/Software/Java")
+                .genre(new Genre(1))
                 .build();
 
         //save book
@@ -104,7 +105,7 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
         assertThat(book.getIsbn(), is(proSpring3Isbn));
         assertThat(book.getTitle(), is("Pro Spring 3"));
         assertThat(book.getAuthor(), is("Clarence Ho"));
-        assertThat(book.getGenre(), is("Java"));
+        assertThat(book.getGenre().getName(), is("Java"));
        // assertThat(new BigDecimal(book.getPrice()), eq(new BigDecimal(19.99));
         assertThat(book.getDescription(), is("Pro Spring 3 updates the bestselling Pro Spring with the latest that the Spring Framework has to offer"));
 
@@ -168,20 +169,20 @@ public class BookDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
     @Test
     public void findByGenre_Java() {
         String genre = "Java";
-        List<Book> javaBooks = bookDao.findByGenre(genre);
+        List<Book> javaBooks = bookDao.findBooksByGenre(genre);
         assertThat(javaBooks.size(), greaterThan(0));
         for (Book javaBook : javaBooks) {
-            assertThat(javaBook.getGenre(), is(genre));
+            assertThat(javaBook.getGenre().getName(), is(genre));
         }
     }
 
     @Test
     public void findByGenre_ScienceFiction() {
-        String genre = "Science Fiction";
-        List<Book> javaBooks = bookDao.findByGenre(genre);
+        String genre = "Sci Fi";
+        List<Book> javaBooks = bookDao.findBooksByGenre(genre);
         assertThat(javaBooks.size(), greaterThan(0));
         for (Book javaBook : javaBooks) {
-            assertThat(javaBook.getGenre(), is(genre));
+            assertThat(javaBook.getGenre().getName(), is(genre));
         }
     }
 

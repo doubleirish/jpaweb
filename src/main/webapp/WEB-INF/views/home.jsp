@@ -22,6 +22,7 @@
         <th>ISBN</th>
         <th>Title</th>
         <th>description</th>
+        <th>genre</th>
     </tr>
 
     <c:forEach items="${books}" var="book">
@@ -29,6 +30,7 @@
           <td>${book.isbn}</td>
           <td>${book.title}</td>
           <td>${book.description}</td>
+          <td>${book.genre}</td>
       </tr>
     </c:forEach>
 

@@ -1,6 +1,7 @@
 package edu.uw.data.lecture6.dao;
 
 import edu.uw.data.lecture6.model.Book;
+import edu.uw.data.lecture6.model.Genre;
 
 import java.util.List;
 
@@ -17,8 +18,10 @@ public interface BookDao {
   void deleteBook(Book book);
 
   // Queries
-  List<Book> findByGenre(String genre);
+  List<Book> findBooksByGenre(String genre);
   List<Book> findAllBooks();
+
+  Genre findGenreByName(String genreName) ;
 
 
          // print

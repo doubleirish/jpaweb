@@ -1,6 +1,7 @@
 package edu.uw.data.lecture6.dao;
 
 import edu.uw.data.lecture6.model.Book;
+import edu.uw.data.lecture6.model.Genre;
 import net.sf.ehcache.CacheManager;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,7 +9,6 @@ import org.hibernate.stat.SecondLevelCacheStatistics;
 import org.hibernate.stat.Statistics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -68,8 +68,8 @@ public class BookDaoImpl implements BookDao {
     }
 
 
-    public List<Book> findByGenre(String genre) {
-        return em.createQuery("select b from Book b where b.genre = :genre", Book.class)
+    public List<Book> findBooksByGenre(String genre) {
+        return em.createQuery("select b from Book b where b.genre.name = :genre", Book.class)
                 .setParameter("genre", genre)
                 .getResultList();
     }
@@ -81,7 +81,12 @@ public class BookDaoImpl implements BookDao {
                 .getResultList();
     }
 
-
+    @Override
+    public Genre findGenreByName(String genreName) {
+        return em.createQuery("select g from Genre g where g.name = :genreName", Genre.class)
+                .setParameter("genreName", genreName)
+                .getSingleResult();
+    }
 
   public org.hibernate.stat.Statistics getHibernateStatistics() {
     Session session = (Session) em.getDelegate();
