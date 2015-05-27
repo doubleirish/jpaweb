@@ -31,8 +31,8 @@ import static org.junit.Assert.assertTrue;
 
 // JAVA CONFIG @ContextConfiguration(loader=AnnotationConfigContextLoader.class, classes = {   EmbeddedTestDataSourceInit.class,  PersistenceJPAConfig.class})
 @ContextConfiguration(locations = {"classpath:/services-spring.xml",
-        "classpath:/datasource-embedded-init.xml"
-        //  "classpath:/datasource-embedded-init-p6spy.xml"
+       // "classpath:/datasource-embedded-init.xml"
+         "classpath:/datasource-embedded-init-p6spy.xml"
         //  "classpath:/datasource-standalone-test.xml"
         //  "classpath:/datasource-standalone-p6spy-test.xml"
 })
