@@ -1,4 +1,4 @@
-# jpaweb
+# jpaWebXml
 JPA and Spring Web integration with XML based config
 
 Uses an embedded derby server with auto-populated tables 
