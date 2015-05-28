@@ -4,6 +4,7 @@ JPA and Spring Web integration with XML based config
 Uses an embedded derby server with auto-populated tables 
 to display a list of books on a web page from rows stored in a BOOKS TABLE
  - ```May 26th Added OpenEntityManagerInViewFilter to prevent lazy init errors on associations ```
+ - ```May 27th Added Sitemesh so headers,footers and nav menus don't need to be repeated on every page ```
 
 Build
 -----
