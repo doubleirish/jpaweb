@@ -267,6 +267,21 @@
             <version>1.8.5</version>
         </dependency>
 
+		<!-- sitemesh decorator design patteren for web pages -->
+		<!--<dependency>-->
+			<!--<groupId>org.sitemesh</groupId>-->
+			<!--<artifactId>sitemesh</artifactId>-->
+			<!--<version>3.0.0</version>-->
+		<!--</dependency>-->
 
-    </dependencies>
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+
+
+
+
+	</dependencies>
 </project>

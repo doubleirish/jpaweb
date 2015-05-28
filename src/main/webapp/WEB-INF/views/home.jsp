@@ -12,10 +12,12 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="pageId" content="tableau_reports"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Book Nook</title>
 </head>
 <body>
-<h2>Book Nook</h2>
+<h2>Book Nook home</h2>
 
 <table border="1">
     <tr>

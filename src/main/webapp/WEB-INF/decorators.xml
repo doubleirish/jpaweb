@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+
+    <excludes>
+        <pattern>/400.htm</pattern>
+        <pattern>/403.htm</pattern>
+        <pattern>/404.htm</pattern>
+        <pattern>/500.htm</pattern>
+        <pattern>*.txt</pattern>
+        <pattern>*.json</pattern>
+        <pattern>*.json</pattern>
+        <pattern>/static/*</pattern>
+        <pattern>/api/*</pattern>
+        <pattern>/ajax/*</pattern>
+    </excludes>
+
+    <decorator name="main" page="main.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>

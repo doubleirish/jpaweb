@@ -28,7 +28,8 @@
     <!-- Enables the Spring MVC @Controller programming model -->
     <mvc:annotation-driven conversion-service="formattingConversionService" />
 
-
+    <mvc:resources mapping="/static/**" location="/static/"/>
+ 
 
 
 
