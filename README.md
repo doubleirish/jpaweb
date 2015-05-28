@@ -57,8 +57,7 @@ A separate branch will be used to illustrate how to connect to a JNDI datasource
 ```
 
 
-
-- TODO add SiteMesh with Header,Footer and Nav panels
+ 
 - TODO Enable Caching in Java Config
 - TODO Enable Pagination in book list
 
