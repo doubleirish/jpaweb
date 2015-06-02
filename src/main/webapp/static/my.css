@@ -8,7 +8,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #ccc;
+    background: #ffffff;
 }
 html, body {
     height: 100%;
@@ -19,6 +19,12 @@ html, body {
     height: 100%;
     margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
 }
+
+
+tbody tr:nth-child(odd) {
+    background-color: #ccc;
+}
+
 .footer, .push {
     height: 142px; /* .push must be the same height as .footer */
 }

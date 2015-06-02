@@ -29,7 +29,7 @@
     <mvc:annotation-driven conversion-service="formattingConversionService" />
 
     <mvc:resources mapping="/static/**" location="/static/"/>
- 
+
 
 
 

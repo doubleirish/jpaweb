@@ -1,6 +1,7 @@
 package edu.uw.data.lecture6.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * User can have one Adress but many Phone Numbers
@@ -33,6 +34,10 @@ public class Book {
 
     @Column(name="PRICE")
     private double price;
+
+    @Column(name = "RELEASE_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date releaseDate;
 
 
   public Book() {
@@ -92,6 +97,14 @@ public class Book {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     @Override
