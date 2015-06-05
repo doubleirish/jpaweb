@@ -34,7 +34,7 @@
 
       </tr>
 
-        
+
         <tr class="pure-table-odd"   >
             <td colspan="2"></td>
             <td colspan="3">${book.description}</td>
